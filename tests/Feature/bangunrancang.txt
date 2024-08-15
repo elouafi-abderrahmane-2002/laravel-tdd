@@ -1,0 +1,57 @@
+/usr/local/bin/composer install
+php artisan migrate
+php artisan db:seed
+vendor/bin/phpunit ./tests/
+cp -rf /var/lib/jenkins/workspace/$JOB_NAME /home/mainhost/public_html
+
+grant all privileges on forge.* to "user"@"localhost" identified by "passwordsaya";
+
+RED='\033[0;31m' 	# Red Color
+GREEN='\033[0;32m'	# Green Color
+BLUE='\033[0;34m'	# Blue Color
+NC='\033[0m'	# No Color
+echo "------------------------------------------------------------"
+#check webserver
+if (( $(ps aux | grep -v grep | grep nginx | wc -l) > 0 ))
+then
+  echo -e "${GREEN} Nginx is running${NC}"
+else
+ echo -e "${RED} Nginx is running${NC}"
+fi
+# Check database service
+if (( $(ps -ef | grep -v grep | grep mysql | wc -l) > 0 ))
+then
+  echo -e "${GREEN} database is running${NC}"
+else
+  echo -e "${RED} database is not running${NC}"
+fi
+# Check jenkins service
+if (( $(ps -ef | grep -v grep | grep jenkins | wc -l) > 0 ))
+then
+  echo -e "${GREEN} jenkins is running${NC}"
+else
+  echo -e "${RED} jenkins is not running${NC}"
+fi
+
+Rezania Agramanisti Azdy1, Azhari SN 2012 
+IMPLEMENTASI SCRUM PADA PENGEMBANGAN SOFTWARE TERDISTRIBUSI : Seminar Nasional Informatika 2012
+
+DANIEL FABLIUS 2017
+RANCANG BANGUN SISTEM PENENTUAN KEPUTUSAN UNTUK DISTRIBUSI PENYEDIAN KONTAINER DENGAN MULTI KRITERIA SECARA DINAMIS. Surabaya : Institut Teknologi Sepuluh Nopember
+
+M Saiful Mukharom 2015
+Merancang Git Server dengan Pendekatan GitHub Social Coding dalam Peningkatan Pembelajaran Mahasiswa. Kediri : UNIVERSITAS NUSANTARA PERSATUAN GURU REPUBLIK INDONESIA
+
+Sofana, Iwan. 2010. Mudah Belajar Linux.Bandung : Informatika
+
+Fatahna, M. A. 2011. Buku CentOS Admininstrator Beta 1. Diambil kembali dari CentOS Indonesia Community: http//forum.centos.or.id/viewtopic.php?f=23&t=3
+
+https://id.wikipedia.org/wiki/SSH diakses 14 Desember 2017
+
+Implementasi Sistem Backup dan Restore Otomatis menggunakan Rsync pada jaringan IPTEKnet BPPT. https://www.palcomtech.com. Diakses pada 12 Oktober 2016.
+
+Mitesh Soni. 2016. Devops for web Development. Packt publishing
+
+Michael Duffy. 2015. DevOps Automation Cookbook. Packt publishing
+
+Nikhil Pathania. 2016. Learning Continuous Integration with Jenkins
